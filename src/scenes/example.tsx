@@ -12,8 +12,8 @@ export default makeScene2D(function* (view) {
   const bezier1 = createRef<CubicBezier>();
   const bezier2 = createRef<CubicBezier>();
 
-  const holeColour = '#ddd';
-  const stringColour = '#d9d';
+  const holeColour = '#222';
+  const stringColour = '#ddd';
 
 
   view.add(
