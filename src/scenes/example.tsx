@@ -13,7 +13,7 @@ export default makeScene2D(function* (view) {
   const bezier2 = createRef<CubicBezier>();
 
   const holeColour = '#222';
-  const stringColour = '#ddd';
+  const stringColour = '#dcd';
 
 
   view.add(
@@ -39,8 +39,8 @@ export default makeScene2D(function* (view) {
         lineWidth={6}
         stroke={stringColour}
         p0={[column2, row2]}
-        p1={[column2, row2 + 140]}
-        p2={[column1, row2 + 140]}
+        p1={[column2, row1 + 40]}
+        p2={[column1, row1 + 40]}
         p3={[column1, row2]}
         end={0}
       />
@@ -61,14 +61,14 @@ export default makeScene2D(function* (view) {
     tween(
       0.2,
       (value) => bezier1()
-        .p1([column1, map(row1, row1 - 70, value)])
-        .p2([column2, map(row1, row1 - 70, value)])
+        .p1([map(column1, column2 - 10, value), map(row1, row1 - 80, value)])
+        .p2([map(column2, column1 + 10, value), map(row1, row1 - 80, value)])
     ),
     tween(
       0.2,
       (value) => bezier2()
-        .p1([column2, map(row2 + 140, row2 + 70, value)])
-        .p2([column1, map(row2 + 140, row2 + 70, value)])
+        .p1([map(column2, column1 + 10, value), map(row1 + 40, row1 - 40, value)])
+        .p2([map(column1, column2 - 10, value), map(row1 + 40, row1 - 40, value)])
     )
   )
 });
